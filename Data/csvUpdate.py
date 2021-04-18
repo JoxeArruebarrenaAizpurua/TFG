@@ -1,12 +1,14 @@
-import requests, csv, bs4
+import sqlite3, requests, csv, bs4
 from datetime import datetime
 
 with open('companiesList.csv', newline='') as file:
     reader = csv.reader(file)
     companiesList = list(reader)
 
+con = sqlite3.connect('companies_historical_info.sqlite')
+
 counter = 0
-company = 0
+company = 2
 for i in companiesList:
     companiesData = i
     dailyInfoList = []
@@ -38,7 +40,7 @@ for i in companiesList:
         else:
             day = str(dateDigit.day)
 
-        finalDate = year + '-' + month + '-' + day
+        finalDate = '"' + year + '-' + month + '-' + day + '"'
         dailyInfoList.append(finalDate)
 
         openValue = dailyInfo[1].text
@@ -57,9 +59,23 @@ for i in companiesList:
         dailyInfoList.append(adjClose)
 
         volume = dailyInfo[6].text
-        dailyInfoList.append(volume)
+        finalVolume = ''
+        for j in volume:
+            if j != ',':
+                finalVolume = finalVolume + j
+
+        dailyInfoList.append(finalVolume)
 
         historicalInfo.append(dailyInfoList)
+
+        entities = (finalDate, openValue, high, low, close, adjClose, finalVolume)
+
+        cursorObj = con.cursor()
+        cursorObj.execute("INSERT INTO " + i[1] + 
+                          " VALUES(" + finalDate + ", " + openValue + ", " + 
+                          high + ", " + low + ", " + close + ", " + adjClose 
+                          + ", " + finalVolume + ")")
+        con.commit()
 
         with open('Companies_CSV/' + i[1] + '.csv', 'w', newline='') as file:
             writer = csv.writer(file)
@@ -67,6 +83,3 @@ for i in companiesList:
 
     
     counter += 1
-
-print()  
-
