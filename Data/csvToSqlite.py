@@ -13,5 +13,3 @@ for i in companiesList:
         #inputFiles.append(companyCsv)
 
         csv_to_sqlite.write_csv(inputFiles, 'companies_historical_info.sqlite', options)
-
-print()
