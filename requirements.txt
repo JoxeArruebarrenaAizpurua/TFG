@@ -1,7 +1,0 @@
-requests
-bs4
-numpy
-datetime
-numpy
-selenium
-csv-to-sqlite

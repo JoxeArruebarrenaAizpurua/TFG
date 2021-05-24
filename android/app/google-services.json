@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "889408529274",
+    "project_id": "tfgjoxe",
+    "storage_bucket": "tfgjoxe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:889408529274:android:118eddcf3c840218deacc3",
+        "android_client_info": {
+          "package_name": "com.TFG.finarrtec"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "889408529274-2899o3ikpen1obkag1okhdr8gbmha473.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwCky0U7DBboyk4-aZ_Cggl3SIlNwDFZY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "889408529274-2899o3ikpen1obkag1okhdr8gbmha473.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "889408529274-0es4lijpr1klsqhi7gosab89fent3qrg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.yogita.logindemo"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
